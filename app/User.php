@@ -2,9 +2,12 @@
 
 namespace App;
 
+use App\Event;
 use App\Enums\UserType;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -41,5 +44,10 @@ class User extends Authenticatable
     public function isMusician()
     {
         return $this->type == (UserType::getInstance(UserType::Musician))->key;
+    }
+
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class);
     }
 }
