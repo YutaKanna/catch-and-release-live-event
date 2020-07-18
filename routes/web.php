@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('musicians', 'MusicianController@index')->name('musicians.index');
+// todo : user->musicianを表示するように変更
+Route::get('musicians/{musician}', 'MusicianController@show')->name('musicians.show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
