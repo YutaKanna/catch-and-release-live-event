@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
 class MusicianController extends Controller
@@ -16,6 +17,7 @@ class MusicianController extends Controller
 
     public function show(User $musician)
     {
-        return view('musicians.show', ['musician' => $musician]);
+        $events = Event::all();
+        return view('musicians.show', compact('musician', 'events'));
     }
 }
