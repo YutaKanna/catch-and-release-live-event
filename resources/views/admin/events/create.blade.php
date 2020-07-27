@@ -90,6 +90,28 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group row">
+                            {!! Form::label('pre_price', __('validation.attributes.pre_price'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::text('pre_price', null, [
+                                        'class' => 'form-control'.($errors->has('pre_price') ? ' is-invalid' : ''),
+                                        'placeholder' => __('validation.attributes.pre_price'),
+                                ]) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            {!! Form::label('basic_price', __('validation.attributes.basic_price'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::text('basic_price', null, [
+                                        'class' => 'form-control'.($errors->has('basic_price') ? ' is-invalid' : ''),
+                                        'placeholder' => __('validation.attributes.basic_price'),
+                                ]) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
                             {!! Form::label('category', __('validation.attributes.category'), ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-3">
                                 <select class="form-control" name="category">
