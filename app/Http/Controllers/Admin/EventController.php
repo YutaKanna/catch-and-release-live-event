@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Event;
+use App\MusicianGroup;
 use App\Venue;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Events\EventStoreRequest;
@@ -19,7 +20,8 @@ class EventController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.events.create', compact('categories'));
+        $musicianGroups = MusicianGroup::all();
+        return view('admin.events.create', compact('categories', 'musicianGroups'));
     }
 
     public function store(EventStoreRequest $request)
@@ -44,6 +46,12 @@ class EventController extends Controller
         $venue->save();
         $event->venue_id = $venue->id;
         $event->save();
+
+        // 中間テーブルにoffer、タレントのidを保存できるようにする
+        // 選択されたタレントの数だけループさせる
+        foreach ($request->musician_groups as $musicianGroupId) {
+            $event->musicianGroups()->attach($musicianGroupId);
+        }
 
         return redirect()->route('admin.events.index')->with('success_message', ('登録完了しました'));
     }

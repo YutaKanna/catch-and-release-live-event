@@ -155,6 +155,7 @@ return [
         'category' => 'カテゴリ',
         'pre_price' => '先行価格',
         'basic_price' => '通常価格',
+        'musician_groups' => '出演者グループ',
     ],
 
 ];
