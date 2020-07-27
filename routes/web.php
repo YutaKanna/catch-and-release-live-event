@@ -27,3 +27,6 @@ Route::post('admin/login', 'Admin\Auth\LoginController@login')->name('post.admin
 Route::post('admin/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 
 Route::get('admin/index', 'Admin\HomeController@index')->name('admin.index');
+Route::get('admin/events', 'Admin\EventController@index')->name('admin.events.index');
+Route::get('admin/event/create', 'Admin\EventController@create')->name('admin.events.create');
+Route::post('admin/event/create', 'Admin\EventController@store')->name('admin.events.store');

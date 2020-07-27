@@ -144,6 +144,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'イベント名',
+        'description' => '概要',
+        'date' => '開催日',
+        'open' => 'open',
+        'start' => 'start',
+        'close' => 'close',
+        'venue' => '開催場所',
+        'category' => 'カテゴリ',
+    ],
 
 ];
