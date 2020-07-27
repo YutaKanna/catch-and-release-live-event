@@ -48,6 +48,9 @@ class EventStoreRequest extends FormRequest
                 'nullable',
                 'integer',
             ],
+            'musician_groups' => [
+                'required',
+            ],
             'category' => [
                 'required',
             ],

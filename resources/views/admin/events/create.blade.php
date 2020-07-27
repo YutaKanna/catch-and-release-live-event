@@ -112,6 +112,37 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group row">
+                            {!! Form::label('musician_groups', __('validation.attributes.musician_groups'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;margin-left: 15px;" data-toggle="modal" data-target="#modal1">＋</button>
+                            <div class="modal fade" id="modal1" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" style="margin-top: 100px;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">出演グループを追加する</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @foreach($musicianGroups as $musicianGroup)
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="musician_groups[]" id="check-{{ $musicianGroup->id }}" value="{{ $musicianGroup->id }}">
+                                                    <label class="form-check-label" for="check-{{ $musicianGroup->id }}">{{ $musicianGroup->name }}</label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- data-dismissは消した方がいい? -->
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
                             {!! Form::label('category', __('validation.attributes.category'), ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-3">
                                 <select class="form-control" name="category">

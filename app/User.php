@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -46,8 +49,16 @@ class User extends Authenticatable
         return $this->type == (UserType::getInstance(UserType::Musician))->key;
     }
 
-    public function events(): HasMany
+    /**
+     * @return BelongsToMany
+     */
+    public function musicianGroups(): BelongsToMany
     {
-        return $this->hasMany(Event::class);
+        return $this->belongsToMany(
+            MusicianGroup::class,
+            'musician_group_musician',
+            'user_id',
+            'musician_group_id',
+        );
     }
 }
