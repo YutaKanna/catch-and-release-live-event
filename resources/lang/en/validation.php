@@ -153,6 +153,8 @@ return [
         'close' => 'close',
         'venue' => '開催場所',
         'category' => 'カテゴリ',
+        'pre_price' => '先行価格',
+        'basic_price' => '通常価格',
     ],
 
 ];

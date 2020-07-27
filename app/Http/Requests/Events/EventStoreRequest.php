@@ -40,6 +40,14 @@ class EventStoreRequest extends FormRequest
             'venue' => [
                 'required',
             ],
+            'pre_price' => [
+                'nullable',
+                'integer',
+            ],
+            'basic_price' => [
+                'nullable',
+                'integer',
+            ],
             'category' => [
                 'required',
             ],

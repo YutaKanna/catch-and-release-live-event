@@ -36,6 +36,8 @@ class EventController extends Controller
         $event->start = $request->start;
         $event->close = $request->close;
         $event->category_id = $request->category;
+        $event->pre_price = $request->pre_price;
+        $event->basic_price = $request->basic_price;
 
         $venue = new Venue;
         $venue->name = $request->venue;
