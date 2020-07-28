@@ -20,6 +20,7 @@ class RedirectIfNotAdmin
         $user = auth('admin')->user();
         if (!$user) {
             return redirect()->route('admin.login');
+            // todo:use enum
         } elseif ($user->type != 100) {
             return redirect()->back();
         }
