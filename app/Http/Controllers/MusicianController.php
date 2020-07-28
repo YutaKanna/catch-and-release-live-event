@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Event;
+use App\Enums\UserType;
 use Illuminate\Http\Request;
 
 class MusicianController extends Controller
 {
     public function index()
     {
-        // Todo: enum使ってmusicianを表示するようにする
-        $musicians = User::where('type', 10)->get();
+        $musicians = User::where('type', UserType::Musician)->get();
         return view('musicians.index', ['musicians' => $musicians]);
     }
 
