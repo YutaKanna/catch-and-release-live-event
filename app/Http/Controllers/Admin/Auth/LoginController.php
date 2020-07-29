@@ -63,7 +63,7 @@ class LoginController extends Controller
             $credentials = ['email' => $inputs['email'], 'password' => $inputs['password']];
 
             // todo:use enum
-            if ($user->type == 100) {
+            if ($user->isAdmin()) {
                 $this->guard()->attempt($credentials, $rememberMe);
                 return redirect()->route('admin.index');
             } else {
