@@ -54,6 +54,9 @@ class EventStoreRequest extends FormRequest
             'category' => [
                 'required',
             ],
+            'image' => [
+                'nullable',
+            ],
         ];
     }
 }

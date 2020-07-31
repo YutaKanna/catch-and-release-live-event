@@ -17,6 +17,11 @@ class EventController extends Controller
         return view('admin.events.index', ['events' => $events]);
     }
 
+    public function show(Event $event)
+    {
+        return view('admin.events.show', ['event' => $event]);
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -26,8 +31,6 @@ class EventController extends Controller
 
     public function store(EventStoreRequest $request)
     {
-        // $hoge = 'hoge';
-        // dd($request->category);
         $event = new Event;
         $event->name = $request->name;
         $event->description = $request->description;
@@ -38,6 +41,8 @@ class EventController extends Controller
         $event->start = $request->start;
         $event->close = $request->close;
         $event->category_id = $request->category;
+        $file_name = $request->file('image')->store('public/images');
+        $event->file_name = basename($file_name);
         $event->pre_price = $request->pre_price;
         $event->basic_price = $request->basic_price;
 
