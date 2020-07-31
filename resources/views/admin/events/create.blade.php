@@ -8,6 +8,7 @@
                 {!! Form::open([
                     'route' => ['admin.events.store'],
                     'method' => 'post',
+                    'enctype' => 'multipart/form-data',
                 ]) !!}
                 {{ csrf_field() }}
                     <h3>イベントを登録する</h3>
@@ -150,6 +151,13 @@
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <div>
+                                <input type="file" name="image">
                             </div>
                         </div>
                     </div>
