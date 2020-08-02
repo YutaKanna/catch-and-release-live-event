@@ -67,7 +67,7 @@ class User extends Authenticatable
         return $this->belongsToMany(
             MusicianGroup::class,
             'musician_group_musician',
-            'user_id',
+            'musician_id',
             'musician_group_id',
         );
     }
