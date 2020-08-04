@@ -21,6 +21,19 @@
                 <div class="row">
                     <div class="col-sm-12"><hr /></div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">■イベント資料</div>
+                    @if ($event->pdf)
+                        <div class="col-sm-12">
+                            <iframe src="{{ asset('storage/images/' . $event->pdf) }}" width="100%" height="100%">
+                                <p><b>表示されない時の表示</b>: <a href="pdf.pdf">PDF をダウンロード</a>.</p>
+                            </iframe>
+                        </div>
+                    @endif
+                </div>
+                <div class="row">
+                    <div class="col-sm-12"><hr /></div>
+                </div>
             </div>
         </div>
     </div>
