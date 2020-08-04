@@ -156,8 +156,17 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group row">
-                            <div>
+                            {!! Form::label('image', __('validation.attributes.image'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-3">
                                 <input type="file" name="image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            {!! Form::label('file', __('validation.attributes.pdf'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-3">
+                                <input type="file" name="file">
                             </div>
                         </div>
                     </div>

@@ -41,8 +41,16 @@ class EventController extends Controller
         $event->start = $request->start;
         $event->close = $request->close;
         $event->category_id = $request->category;
-        $file_name = $request->file('image')->store('public/images');
-        $event->file_name = basename($file_name);
+
+        if ($request->image){
+            $file_name = $request->file('image')->store('public/images');
+            $event->file_name = basename($file_name);
+        }
+
+        if ($request->file){
+            $pdf_name = $request->file('file')->store('public/images');
+            $event->pdf = basename($pdf_name);
+        }
         $event->pre_price = $request->pre_price;
         $event->basic_price = $request->basic_price;
 

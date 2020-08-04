@@ -56,6 +56,12 @@ class EventStoreRequest extends FormRequest
             ],
             'image' => [
                 'nullable',
+                'mimes:jpeg,png',
+            ],
+            'file' => [
+                'nullable',
+                'file',
+                'mimes:pdf'
             ],
         ];
     }
