@@ -59,6 +59,7 @@ class EventController extends Controller
         $venue->save();
         $event->venue_id = $venue->id;
         $event->save();
+        
 
         // 中間テーブルにoffer、タレントのidを保存できるようにする
         // 選択されたタレントの数だけループさせる
