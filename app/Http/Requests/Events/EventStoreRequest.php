@@ -20,6 +20,10 @@ class EventStoreRequest extends FormRequest
             'description' => [
                 'required',
             ],
+            'public_date' => [
+                'required',
+                'date_format:Y/m/d H:i',
+            ],
             'date' => [
                 'required',
                 'date_format:Y/m/d',

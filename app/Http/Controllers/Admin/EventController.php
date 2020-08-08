@@ -13,7 +13,8 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        // $events = Event::all();
+        $events = Event::where('public_date', '<=', now())->get();
         return view('admin.events.index', ['events' => $events]);
     }
 
@@ -34,6 +35,7 @@ class EventController extends Controller
         $event = new Event;
         $event->name = $request->name;
         $event->description = $request->description;
+        $event->public_date = $request->public_date;
         // グループ単位で登録できるようにしたい。リレーションも多対多に変更
         $event->user_id = 1;
         $event->date = $request->date;
@@ -59,7 +61,6 @@ class EventController extends Controller
         $venue->save();
         $event->venue_id = $venue->id;
         $event->save();
-        
 
         // 中間テーブルにoffer、タレントのidを保存できるようにする
         // 選択されたタレントの数だけループさせる

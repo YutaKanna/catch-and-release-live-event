@@ -158,6 +158,9 @@ return [
         'musician_groups' => '出演者グループ',
         'image' => '画像',
         'pdf' => 'イベント資料(pdfのみ)',
+        'public_date' => '公開日',
+        'public_date_example' => '2020/01/01 01:01',
+        'format_date' => 'Y/m/d H:i',
     ],
 
 ];

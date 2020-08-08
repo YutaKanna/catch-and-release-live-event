@@ -36,6 +36,17 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group row">
+                            {!! Form::label('public_date', __('validation.attributes.public_date'), ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::text('public_date', null, [
+                                        'class' => 'form-control'.($errors->has('public_date') ? ' is-invalid' : ''),
+                                        'placeholder' => __('validation.attributes.public_date_example'),
+                                ]) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
                             {!! Form::label('date', __('validation.attributes.date'), ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
                                 {!! Form::text('date', null, [
